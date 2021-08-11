@@ -1,0 +1,127 @@
+<form action="" [formGroup]="profileform">
+    <!-- (ngSubmit)="add()" -->
+    <div>
+        <label for="">Username</label>
+    </div>
+
+    <div>
+
+        <input type="text" class="form-control" maxlength="20" required formControlName="name">
+
+        <!-- <div *ngIf=f.name.touched && f.name.invalid class="alert alert-danger">name is not valid</div> -->
+
+    </div>
+
+
+    <div>
+
+        <label for="">Email</label>
+
+    </div>
+
+    <div>
+
+        <input type="email" class="form-control" formControlName="email">
+
+        <!-- <div *ngIf=f.email.touched && f.email.invalid class="alert alert-danger">email is not valid</div> -->
+
+    </div>
+
+
+    <div>
+
+        <label for="">Mobile</label>
+
+    </div>
+
+    <div>
+
+        <input type="tel" class="form-control" formControlName="num">
+
+        <!-- <div *ngIf=f.num.touched && f.num.invalid class="alert alert-danger">Number is not valid</div> -->
+
+    </div>
+
+
+    <div>
+
+        <label for="">Age</label>
+
+    </div>
+
+    <div>
+
+        <input type="number" class="form-control" formControlName="age">
+
+        <!-- <div *ngIf=f.age.touched && f.age.invalid class="alert alert-danger">age is not valid</div> -->
+
+    </div>
+    <!-- <div>
+        <input type="submit" value ="Add" class="btn-btn-primary">
+    </div> -->
+
+    <button (click)="onSubmit(profileform.value)">{{isEdit?'update':'save'}}</button>
+    <!-- <button (click)="onSubmit()">save</button> -->
+    <!--  -->
+    <html>
+
+    <style>
+        table,
+
+        th,
+
+        td {
+
+            border: 1px solid black;
+
+            border-collapse: collapse;
+
+            background-color: white;
+
+            padding: auto;
+
+        }
+    </style>
+
+
+    <body>
+
+        <table style="width:80%; height: 400px;">
+
+            <tr>
+
+                <th>Username</th>
+
+                <th>Email</th>
+
+                <th>Mobile</th>
+
+                <th>Age</th>
+
+                <th>Edit</th>
+
+                <th>Delete</th>
+
+            </tr>
+
+            <tr *ngFor="let user of user1">
+
+                <td>{{user.name}}</td>
+
+                <td>{{user.email}}</td>
+                <td>{{user.num}}</td>
+
+                <td>{{user.age}}</td>
+                <!-- <td><button>edit</button></td>
+  
+    <td><button>delete</button></td>  -->
+
+                <td><button (click)="edit(user)">edit</button></td>
+
+                <td><button (click)="delete(user)">delete</button></td>
+
+        </table>
+
+    </body>
+
+    </html>
